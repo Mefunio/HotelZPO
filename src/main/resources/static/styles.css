@@ -1,0 +1,187 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+p {
+    text-align: center;
+    color: #555;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+    margin: 0;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#admin {
+    display: block;
+    color: white;
+    background-color: #616161;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#admin:hover {
+    background-color: #474747;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+form {
+    width: 80%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input[type="text"], input[type="email"], input[type="date"], input[type="time"],
+input[type="number"], select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+td button {
+    margin: 0;
+    padding: 10px;
+}
+
+#admin-actions {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+#submit {
+    background-color: #ff4848;
+    width: -webkit-fill-available;
+}
+
+#submit:hover {
+    background-color: #ff6464;
+}
+
+#edit {
+    background-color: #e4891c;
+    width: -webkit-fill-available;
+    margin-left: 5px;
+}
+
+#edit:hover {
+    background-color: #dc9d52;
+}
+
+.bookings-form {
+    padding: 0;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+table, form {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.welcome-text {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#alert {
+    text-align: center;
+    color: #ff4848;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#find{
+    margin-top: 10px;
+}
+
+#delete {
+    background-color: #ff4848;
+    width: -webkit-fill-available;
+    margin: 0;
+}
+
+#bookings-form {
+    padding: 0;
+}

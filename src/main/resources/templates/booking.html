@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bookings</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/rooms}">Rooms</a></li>
+        <li><a th:href="@{/bookings}">Bookings</a> </li>
+        <li><a th:href="@{/clients}">Clients</a></li>
+        <li><a th:href="@{/bookings/findRooms}" id="admin">Find available rooms</a></li>
+    </ul>
+</nav>
+<h1>Bookings</h1>
+<p>All bookings</p>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Check in</th>
+        <th>Check out</th>
+        <th>Number of people</th>
+        <th>Room</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="booking : ${bookings}">
+        <td th:text="${booking.client.getName()}"></td>
+        <td th:text="${booking.client.getPhone()}"></td>
+        <td th:text="${booking.getCheckIn()}"></td>
+        <td th:text="${booking.getCheckOut()}"></td>
+        <td th:text="${booking.getNumberOfGuests()}"></td>
+        <td th:text="${booking.rooms[0].id}"></td>
+        <td>
+        <form th:action="@{/bookings/delete/{id}(id=${booking.id})}" method="post" id="bookings-form">
+            <input type="hidden" name="_method" value="delete" />
+            <button type="submit"  id="delete">Delete</button>
+        </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

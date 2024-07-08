@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Clients</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/rooms}">Rooms</a></li>
+        <li><a th:href="@{/bookings}">Bookings</a> </li>
+        <li><a th:href="@{/clients}">Clients</a></li>
+        <li><a th:href="@{/bookings/findRooms}" id="admin">Find available rooms</a></li>
+    </ul>
+</nav>
+<h1>Clients</h1>
+<p>All our clients</p>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Mail</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client : ${clients}">
+        <td th:text="${client.getName()}"></td>
+        <td th:text="${client.getPhone()}"></td>
+        <td th:text="${client.getMail()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

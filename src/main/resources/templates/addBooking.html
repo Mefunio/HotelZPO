@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Booking</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/rooms}">Rooms</a></li>
+        <li><a th:href="@{/bookings}">Bookings</a> </li>
+        <li><a th:href="@{/clients}">Clients</a></li>
+        <li><a th:href="@{/bookings/findRooms}" id="admin">Find available rooms</a></li>
+    </ul>
+</nav>
+<h1>Add Booking</h1>
+<p>Choose rooms and reserve them</p>
+<form th:action="@{/bookings/add}" method="post">
+    <input type="hidden" name="checkIn" th:value="${checkIn}" />
+    <input type="hidden" name="checkOut" th:value="${checkOut}" />
+    <input type="hidden" name="people" th:value="${people}" />
+    <div>
+        <label for="clientName">Client Name:</label>
+        <input type="text" id="clientName" name="clientName" required />
+    </div>
+    <div>
+        <label for="clientEmail">Client Email:</label>
+        <input type="email" id="clientEmail" name="clientEmail" required />
+    </div>
+    <div>
+        <label for="clientPhone">Client Phone:</label>
+        <input type="text" id="clientPhone" name="clientPhone" required />
+    </div>
+    <div>
+        <h2>Select rooms:</h2>
+        <div th:each="room : ${rooms}">
+            <input type="radio" th:id="${'room' + room.id}" th:name="roomId" th:value="${room.id}" />
+            <label th:for="${'room' + room.id}" th:text="${'Room ' + room.id + ' (' + room.beds + ' beds) - (Bathroom: ' + room.bathroom + ', TV: ' + room.tv + ') - cost per day (' + room.price + 'zl)'}"></label>
+        </div>
+        <br>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

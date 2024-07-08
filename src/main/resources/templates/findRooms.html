@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Table</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/rooms}">Rooms</a></li>
+        <li><a th:href="@{/bookings}">Bookings</a> </li>
+        <li><a th:href="@{/clients}">Clients</a></li>
+        <li><a th:href="@{/bookings/findRooms}" id="admin">Find available rooms</a></li>
+    </ul>
+</nav>
+<h1>Find free rooms</h1>
+<p>Enter data to display available rooms</p>
+<form action="/bookings/findRooms" method="post">
+    <label for="checkIn">Check in:</label>
+    <input type="date" id="checkIn" name="checkIn" required>
+
+    <label for="checkOut">Check out:</label>
+    <input type="date" id="checkOut" name="checkOut" required>
+
+    <label for="people">Number of people:</label>
+    <input type="number" id="people" name="people" required>
+
+    <label for="bathroom">Bathroom:</label>
+    <input type="checkbox" id="bathroom" name="bathroom" th:default="false">
+
+    <label for="tv" >TV:</label>
+    <input type="checkbox" id="tv" name="tv" th:default="false">
+
+    <br>
+    <button type="submit" id="find">Find rooms</button>
+
+    <div th:if="${message}" th:text="${message}" id="alert"></div>
+
+</form>
+</body>
+</html>
